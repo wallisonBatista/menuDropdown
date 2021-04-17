@@ -1,0 +1,134 @@
+/*global*/
+
+:root {
+    --roxo: #1d075f;
+    --lilas: #5434af;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+/*menu*/
+
+nav {
+    background: var(--lilas);
+    height: 80px;
+    width: 100%;
+}
+
+label.logo {
+    color: white;
+    font-size: 35;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+
+/*Menu alinhando a direita*/
+nav ul {
+    float: right;
+    margin-right: 20px;
+}
+
+/*Deixando um ao lado do outro*/
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+/*Links e botões*/
+
+nav ul li a {
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+a.active, a:hover {
+    background: var(--roxo);
+    transition: .5s;
+}
+
+/*icone bars configs*/
+.checkbtn {
+    font-size: 30px;
+    color: #FFF;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+
+    /*não aparecer na resolução desktop*/
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+
+/*tablet*/
+@media (max-width: 952px) {
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+/*mobile*/
+@media (max-width: 858px) {
+    .checkbtn {
+        display: block;
+    }
+
+    ul {
+        /*Ficar sobre o conteúco sobre o <section>*/
+        position: fixed;
+
+        width: 100%;
+        height: 100%;
+        background: var(--roxo);
+
+        /*Aparecer abaixo da navbar que tem o tamanho de 80px*/
+        top: 80px;
+
+        /*Exibir o menu apenas após clicar no ícone*/
+        left: -100%;
+        
+        text-align: center;
+        transition: all .5s;
+    }
+
+    nav ul li {
+        /*Colocando um abaixo do outro (inicio, sobre ...)*/
+        display: block;
+
+        margin: 50px 0;
+        line-height: 30px;
+    }
+
+    nav ul li a {
+        font-size: 20px;
+    }
+
+    /*efeito*/
+    a:active, a:hover {
+        background: none;
+        color: var(--lilas);
+    }
+}
